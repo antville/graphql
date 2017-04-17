@@ -1,0 +1,17 @@
+apply plugin: 'java'
+defaultTasks 'deps'
+
+repositories {
+  jcenter()
+  mavenCentral()
+}
+
+dependencies {
+  runtime group: 'com.graphql-java', name: 'graphql-java', version: '2.4.0'
+  runtime group: 'org.json', name: 'json', version: '20160810'
+}
+
+task deps(type: Copy) {
+  from configurations.runtime
+  into '.'
+}
